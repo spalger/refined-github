@@ -1,13 +1,19 @@
+const {
+  CHROME_APP_ID,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REFRESH_TOKEN,
+  EXTENSION_ZIP = 'extension.zip',
+} = process.env
+
 if (
-  !process.env.CHROME_APP_ID
-  || !process.env.CLIENT_ID
-  || !process.env.CLIENT_SECRET
-  || !process.env.REFRESH_TOKEN
+  !CHROME_APP_ID ||
+  !CLIENT_ID ||
+  !CLIENT_SECRET ||
+  !REFRESH_TOKEN
 ) {
   throw new Error('You must specify the CHROME_APP_ID, CLIENT_ID, CLIENT_SECRET, and REFRESH_TOKEN environment vars')
 }
-
-const ZIP = 'extension.zip'
 
 module.exports = function initGrunt(grunt) {
   grunt.initConfig({
@@ -17,16 +23,16 @@ module.exports = function initGrunt(grunt) {
         default: {
           cli_auth: true,
           publish: true,
-          client_id: process.env.CLIENT_ID,
-          client_secret: process.env.CLIENT_SECRET,
-          refresh_token: process.env.REFRESH_TOKEN,
+          client_id: CLIENT_ID,
+          client_secret: CLIENT_SECRET,
+          refresh_token: REFRESH_TOKEN,
         },
       },
       extensions: {
         refinedGitHub: {
-          appID: process.env.CHROME_APP_ID, // App ID from chrome webstore
+          appID: CHROME_APP_ID,
           publish: true,
-          zip: ZIP,
+          zip: EXTENSION_ZIP,
         },
       },
     },
