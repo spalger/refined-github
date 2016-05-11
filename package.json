@@ -1,24 +1,8 @@
 {
   "scripts": {
-    "test": "xo && ava"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-webstore-upload": "^0.8.10",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true,
-    "envs": [
-      "browser",
-      "jquery",
-      "webextensions"
-    ],
-    "ignores": [
-      "extension/vendor/**"
-    ]
+    "test": "eslint && ava",
+    "build": "rm -rf extension && webpack",
+    "start": "rm -rf extension && webpack --watch --progress"
   },
   "ava": {
     "files": [
@@ -27,5 +11,34 @@
     "source": [
       "extension/*.js"
     ]
+  },
+  "dependencies": {
+    "@spalger/babel-presets": "0.0.1",
+    "@spalger/eslint-config-personal": "^0.4.0",
+    "angular": "^1.5.5",
+    "ava": "*",
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "bootstrap": "^3.3.6",
+    "bootstrap-material-design": "^0.5.9",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-config-react": "^1.1.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.1.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "github-injection": "^0.2.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-webstore-upload": "^0.8.10",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.16.1",
+    "jquery": "^2.2.3",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0"
   }
 }

@@ -1,0 +1,17 @@
+---
+extends: "@spalger/personal/es6"
+
+globals:
+  chrome: false
+
+rules:
+  max-len: [error, 120]
+  no-shadow:
+    - error
+    - builtinGlobals: true
+      hoist: all
+      allow:
+        - _
+  no-unused-vars:
+    - error
+    - varsIgnorePattern: "_"
